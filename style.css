@@ -1,0 +1,55 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+}
+
+header {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    padding: 30px 40px;
+    margin-bottom: 10px;
+}
+
+.searchBar {
+    --width: calc(80% - 80px);
+    width: 100%;
+    position: relative;
+}
+
+#searchBarInput {
+    width: var(--width);
+    height: 50px;
+    font-size: 20px;
+    margin: 0 40px;
+    padding: 10px;
+    text-overflow: ellipsis;
+}
+
+#searchSuggestions {
+    width: var(--width);
+    margin: 0 40px;
+    list-style: none;
+    position: absolute;
+    top: 100%;
+    /*border: 1px solid black;*/
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+#searchSuggestions li {
+    font-size: 20px;
+    padding: 10px;
+}
+
+#searchSuggestions li:nth-child(even) {
+    background-color: #eee;
+}

@@ -27,7 +27,7 @@ The Pokédex Web App is an interactive web application that allows users to expl
 
 ### 🔍 Search
 
-* [ ] Search Pokémon by name
+* [x] Search Pokémon by name
 
 ### 🎯 Filtering
 
@@ -73,7 +73,7 @@ The Pokédex Web App is an interactive web application that allows users to expl
 ## 🚀 Milestone Progress
 
 * [x] Milestone 1: Project idea & planning
-* [ ] Milestone 2: API integration
+* [x] Milestone 2: API integration
 * [ ] Milestone 3: Core features
 * [ ] Milestone 4: Final deployment
 
@@ -81,7 +81,7 @@ The Pokédex Web App is an interactive web application that allows users to expl
 
 ## 💡 Bonus Features (Optional)
 
-* [ ] Debouncing (search optimization)
+* [x] Debouncing (search optimization)
 * [ ] Pagination / Infinite scroll
 * [ ] Loading indicators
 * [ ] Local storage support
