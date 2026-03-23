@@ -8,10 +8,10 @@ The Pokédex Web App is an interactive web application that allows users to expl
 
 ## 🎯 Objective
 
-* [ ] Integrate a public API using JavaScript (fetch)
-* [ ] Dynamically display data on a webpage
-* [ ] Implement search, filtering, and sorting using array HOFs
-* [ ] Build a responsive and visually appealing UI
+* Integrate a public API using JavaScript (fetch)
+* Dynamically display data on a webpage
+* Implement search, filtering, and sorting using array HOFs
+* Build a responsive and visually appealing UI
 
 ---
 
