@@ -19,7 +19,7 @@ The Pokédex Web App is an interactive web application that allows users to expl
 
 * [x] Connect to PokéAPI (https://pokeapi.co/)
 * [x] Fetch Pokémon list
-* [x] Fetch detailed Pokémon data
+* [ ] Fetch detailed Pokémon data
 
 ---
 
