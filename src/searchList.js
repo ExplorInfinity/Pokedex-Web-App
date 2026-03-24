@@ -33,7 +33,10 @@ searchBar.addEventListener('keydown', async (e) => {
 });
 
 function updateCurrentInputPreview(currentInput) {
-    if (!currentInput) return;
+    if (!currentInput) {
+        searchSuggestionsList.style.display = 'none';
+        return;
+    }
 
     const listItems = document.querySelectorAll("#searchSuggestions li");
     let currListItem;
