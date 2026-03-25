@@ -1,4 +1,5 @@
 import fetchURL from './fetch.js';
+import {formatString} from "./utils.js";
 
 const apiUrl = "https://pokeapi.co/api/v2";
 const apiEndPoints = {
@@ -24,8 +25,13 @@ async function getPokemon(pokemonName) {
 
 async function preloadData() {
     PokemonAPI.cache.pokemonList = await getAllPokemonNames();
-    PokemonAPI.cache.nameList = PokemonAPI.cache.pokemonList.map(pokemon => pokemon.name);
-    PokemonAPI.cache.nameList.sort();
+    PokemonAPI.cache.pokemonList.sort((p1, p2) => p1.name < p2.name ? -1 : 1);
+    PokemonAPI.cache.pokemonList.forEach(pokemon => {
+        pokemon.value = pokemon.name;
+        pokemon.name = formatString(pokemon.name);
+        pokemon.lowerCaseName = pokemon.name.toLowerCase();
+    });
+
     console.log(PokemonAPI.cache.pokemonList);
 }
 

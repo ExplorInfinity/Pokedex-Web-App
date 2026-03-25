@@ -1,16 +1,18 @@
 import {getPokemon, PokemonAPI} from './api.js'
 import {updateSearchList, updateCurrentInputPreview} from './searchList.js'
 
-const debouncingTime = 500;
+const debouncingTime = 300;
 const searchBar = document.getElementById('searchBarInput');
 
 async function search(input) {
-    if (!PokemonAPI.cache.nameList.find(name => input === name)) {
+    input = input.toLowerCase().trim();
+    const pokemon = PokemonAPI.cache.pokemonList.find(pokemon => input === pokemon.lowerCaseName);
+    if (!pokemon) {
         alert("No Pokemon found.");
         return;
     }
 
-    return await getPokemon(input);
+    return await getPokemon(pokemon.value);
 }
 
 function handleSearchBarInput() {
@@ -24,7 +26,7 @@ function handleSearchBarInput() {
 
 function getSearchMatches(input) {
     input = input.trim().toLowerCase();
-    return PokemonAPI.cache.nameList.filter(pokemon => pokemon.startsWith(input));
+    return PokemonAPI.cache.pokemonList.filter(pokemon => pokemon.lowerCaseName.startsWith(input));
 }
 
 let searchTimer = null;

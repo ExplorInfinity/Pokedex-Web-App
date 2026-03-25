@@ -20,15 +20,19 @@ searchBar.addEventListener('keydown', async (e) => {
         const jump = Number(e.key === "ArrowDown") * 2 - 1;
         currListIndex = (currListIndex + jump + listItems.length) % listItems.length;
         listItems[currListIndex].classList.add("highlighted");
-        searchBar.value = listItems[currListIndex].getAttribute("value");
+        searchBar.value = listItems[currListIndex].textContent;
     }
 
     if (e.key === "Enter") {
         if(currListIndex === -1) return;
 
         const listItems = document.querySelectorAll("#searchSuggestions li");
+        const input = listItems[currListIndex].getAttribute("value");
+
         searchSuggestionsList.innerHTML = '';
-        console.log(await search(listItems[currListIndex].getAttribute("value")));
+        currListIndex = -1;
+
+        console.log(await search(input));
     }
 });
 
@@ -41,21 +45,30 @@ function updateCurrentInputPreview(currentInput) {
     const listItems = document.querySelectorAll("#searchSuggestions li");
     let currListItem;
     if (listItems.length === 0) {
-        currListItem = appendListElement(currentInput);
+        currListItem = appendListElement(currentInput, currentInput.toLowerCase());
     } else currListItem = listItems[0];
 
     searchSuggestionsList.style.display = 'block';
     currListIndex = 0;
     currListItem.textContent = currentInput;
-    currListItem.setAttribute("value", currentInput);
+    currListItem.setAttribute("value", currentInput.toLowerCase());
     currListItem.classList.add("highlighted");
 }
 
-function appendListElement(text) {
+function appendListElement(text, value) {
     const listItem = document.createElement('li');
     listItem.textContent = text;
-    listItem.setAttribute('value', text);
+    listItem.setAttribute('value', value);
     searchSuggestionsList.appendChild(listItem);
+
+    listItem.addEventListener('click', async  () => {
+        searchBar.value = listItem.textContent;
+        const input = listItem.getAttribute("value");
+        searchSuggestionsList.innerHTML = '';
+        currListIndex = -1;
+        console.log(await search(input));
+    });
+
     return listItem;
 }
 
@@ -67,19 +80,19 @@ function clearList(clearInputPreview = false) {
     }
 }
 
-function updateSearchList(searchList, currInput = "") {
+function updateSearchList(suggestionsList, currInput) {
     currListIndex = -1;
     clearList();
 
-    if (searchList.length === 0 && currInput === "") {
+    if (suggestionsList.length === 0 && currInput === "") {
         searchSuggestionsList.style.display = 'none';
         return;
     }
 
     updateCurrentInputPreview(currInput);
-    const size = Math.min(MaxSuggestionCount, searchList.length);
+    const size = Math.min(MaxSuggestionCount, suggestionsList.length);
     for (let i = 0; i < size; i++)
-        appendListElement(searchList[i]);
+        appendListElement(suggestionsList[i].name, suggestionsList[i].lowerCaseName);
 }
 
 export { updateSearchList, updateCurrentInputPreview };

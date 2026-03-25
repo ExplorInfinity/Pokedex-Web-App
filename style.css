@@ -54,6 +54,17 @@ header {
     background-color: #eee;
 }
 
-#searchSuggestions li:hover, #searchSuggestions li.highlighted {
+#searchSuggestions li:hover {
     background-color: rgb(255 255 0 / 0.2);
+}
+
+#searchSuggestions li.highlighted {
+    --border-size: 3px;
+
+    background-color: rgb(255 255 0 / 0.2);
+    border-left: var(--border-size) solid rgb(255 213 0);
+    border-radius: 5px 0 0 5px;
+    translate: calc(var(--border-size) * -1) 0;
+    width: calc(100% + var(--border-size));
+    transition: translate 0.1s;
 }
