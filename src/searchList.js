@@ -47,6 +47,7 @@ function updateCurrentInputPreview(currentInput) {
     searchSuggestionsList.style.display = 'block';
     currListIndex = 0;
     currListItem.textContent = currentInput;
+    currListItem.setAttribute("value", currentInput);
     currListItem.classList.add("highlighted");
 }
 
