@@ -4,18 +4,105 @@
     <meta charset="UTF-8">
     <title>Pokedex</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./stylesheets/pokemonCard.css">
+    <link rel="stylesheet" href="./stylesheets/pokemonProfile.css">
+    <link rel="stylesheet" href="./stylesheets/pokemonTypeIcons.css">
 </head>
 <body>
 
 
     <header>
         <h1>Pokédex</h1>
-    </header>
-
-    <main>
         <div class="searchBar">
             <input type="text" id="searchBarInput" autocomplete="off">
             <ul id="searchSuggestions"></ul>
+        </div>
+    </header>
+
+    <main>
+
+        <div id="pokemonContainer" style="display: none">
+<!--            <div class="pokemonCard">-->
+<!--                <img class="pokemonImg"-->
+<!--                     src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/9.png"-->
+<!--                     alt="Blastoise">-->
+<!--                <div class="pokemonDetails">-->
+<!--                    <p class="pokemonName">Blastoise</p>-->
+<!--                </div>-->
+<!--            </div>-->
+        </div>
+
+        <div class="pokemonProfile">
+            <div class="detailsSection">
+                <h1 class="pokemonName">Charizard Mega X</h1>
+
+                <div class="types">
+                    <div class="typeCapsule fire">
+                        <div class="typeIcon">
+                            <div></div>
+                        </div>
+                        Fire
+                    </div>
+
+                    <div class="typeCapsule flying">
+                        <div class="typeIcon">
+                            <div></div>
+                        </div>
+                        Flying
+                    </div>
+                </div>
+
+                <div class="stats">
+                    <div class="stat">
+                        HP
+                        <div class="strengthBar">
+                            <div class="strength"></div>
+                        </div>
+                    </div>
+                    <div class="stat">
+                        Attack
+                        <div class="strengthBar">
+                            <div class="strength"></div>
+                        </div>
+                    </div>
+                    <div class="stat">
+                        Defence
+                        <div class="strengthBar">
+                            <div class="strength"></div>
+                        </div>
+                    </div>
+                    <div class="stat">
+                        Speed
+                        <div class="strengthBar">
+                            <div class="strength"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="moreInfo">
+                    <div class="infoBox">
+                        Height
+                        <div class="infoValue">17 m</div>
+                    </div>
+                    <div class="infoBox">
+                        Weight
+                        <div class="infoValue">1105 kg</div>
+                    </div>
+                    <div class="infoBox">
+                        Category
+                        <div class="infoValue">Flame</div>
+                    </div>
+                    <div class="infoBox">
+                        Abilities
+                        <div class="infoValue">Tough Claws</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="viewSection">
+                <img class="pokemonImage" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10034.png" alt="Pokemon">
+            </div>
+
         </div>
 
     </main>

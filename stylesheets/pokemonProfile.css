@@ -1,0 +1,103 @@
+.pokemonProfile {
+    width: 100%;
+    height: calc(100vh - 100px);
+    display: grid;
+    grid-template-columns: auto 525px;
+}
+
+.pokemonProfile .detailsSection {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 40px;
+}
+
+.pokemonProfile .detailsSection .pokemonName {
+    font-size: 3em;
+    color: whitesmoke;
+    text-shadow: 1px 1px 1px rgb(0 0 0 / 0.4);
+}
+
+.pokemonProfile .detailsSection .stats {
+    margin-block: 40px;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    gap: 10px;
+    padding: 0 20px;
+}
+
+.pokemonProfile .detailsSection .stats .stat {
+    --value: 70%;
+
+    display: grid;
+    grid-template-columns: auto 80%;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.pokemonProfile .detailsSection .types {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    gap: 10px;
+    /*font-size: 16px;*/
+    /*color: whitesmoke;*/
+    /*text-shadow: 1px 1px 1px rgb(0 0 0 / 0.4);*/
+}
+
+.pokemonProfile .viewSection {
+
+}
+
+.pokemonProfile .viewSection .pokemonImage {
+    margin-top: 25%;
+}
+
+.strengthBar {
+    display: inline-block;
+    width: 100%;
+    height: 5px;
+    background-color: #acacac;
+    position: relative;
+    border-radius: 10px;
+}
+
+.strengthBar .strength {
+    display: inline-block;
+    width: var(--value);
+    height: 100%;
+    background-color: crimson;
+    position: absolute;
+    left: 0;
+    border-radius: 10px;
+}
+
+.moreInfo {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 20px;
+    width: 50%;
+    border: 5px dashed rgb(0 0 0 / 0.4);
+    border-radius: 5px;
+}
+
+.infoBox {
+    font-size: 17px;
+    color: #3c3c3c;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /*align-items: center;*/
+}
+
+.infoBox .infoValue {
+    border: 1px solid grey;
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}

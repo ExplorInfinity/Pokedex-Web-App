@@ -1,4 +1,5 @@
 import { getSearchMatches, handleSearchBarInput, search } from "./search.js";
+import {createCard} from "./components/pokemonCard.js";
 
 const searchBar = document.getElementById('searchBarInput');
 const searchSuggestionsList = document.getElementById('searchSuggestions');
@@ -32,7 +33,9 @@ searchBar.addEventListener('keydown', async (e) => {
         searchSuggestionsList.innerHTML = '';
         currListIndex = -1;
 
-        console.log(await search(input));
+        const pokemon_data = await search(input);
+        console.log(pokemon_data);
+        createCard(pokemon_data);
     }
 });
 

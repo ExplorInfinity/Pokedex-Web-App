@@ -3,7 +3,8 @@ import {formatString} from "./utils.js";
 
 const apiUrl = "https://pokeapi.co/api/v2";
 const apiEndPoints = {
-    GET_POKEMON: '/pokemon/'
+    GET_POKEMON: '/pokemon/',
+    GET_POKEMON_SPECIES: '/pokemon-species/'
 };
 
 const PokemonAPI = {
@@ -17,10 +18,7 @@ async function getAllPokemonNames() {
 }
 
 async function getPokemon(pokemonName) {
-    const data = await fetchURL(apiUrl + apiEndPoints.GET_POKEMON + pokemonName);
-
-    if (data)
-        return data;
+    return await fetchURL(apiUrl + apiEndPoints.GET_POKEMON + pokemonName);
 }
 
 async function preloadData() {
