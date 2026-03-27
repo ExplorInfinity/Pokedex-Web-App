@@ -31,7 +31,7 @@ searchBar.addEventListener('keydown', async (e) => {
         const listItems = document.querySelectorAll("#searchSuggestions li");
         const input = listItems[currListIndex].getAttribute("value");
 
-        searchSuggestionsList.innerHTML = '';
+        clearList(true);
         currListIndex = -1;
 
         const pokemon_data = await search(input);
@@ -70,7 +70,7 @@ function appendListElement(text, value) {
     listItem.addEventListener('click', async  () => {
         searchBar.value = listItem.textContent;
         const input = listItem.getAttribute("value");
-        searchSuggestionsList.innerHTML = '';
+        clearList(true);
         currListIndex = -1;
         const pokemon_data = await search(input);
         console.log(pokemon_data);

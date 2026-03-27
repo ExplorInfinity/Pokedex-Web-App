@@ -13,8 +13,11 @@
 
 .pokemonProfile .detailsSection .pokemonName {
     font-size: 3em;
-    color: whitesmoke;
-    text-shadow: 2px 2px 2px rgb(0 0 0 / 0.4);
+    margin: 5px 0;
+    /*color: whitesmoke;*/
+    /*text-shadow: 2px 2px 2px rgb(0 0 0 / 0.4);*/
+    color: black;
+    text-shadow: none;
 }
 
 .pokemonProfile .detailsSection .pokemonStats {
@@ -40,7 +43,7 @@
 .pokemonProfile .detailsSection .pokemonTypes {
     display: flex;
     align-items: center;
-    padding: 10px 20px;
+    padding: 10px;
     gap: 10px;
     /*font-size: 16px;*/
     /*color: whitesmoke;*/
