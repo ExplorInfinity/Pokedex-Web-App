@@ -7,4 +7,8 @@ function formatString(pokemon) {
     return words.map(word => capitalize(word)).join(' ');
 }
 
-export { formatString };
+function createUrlString(pokemon) {
+    return pokemon.split(' ').join('-');
+}
+
+export { capitalize, formatString, createUrlString };

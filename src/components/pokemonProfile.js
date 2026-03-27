@@ -1,0 +1,71 @@
+import { capitalize } from '../utils.js';
+
+const MaxStatValues = {
+    hp: 714, def: 614, atk: 548, speed: 504
+};
+
+const pokemonProfileElement = document.querySelector('.pokemonProfile');
+
+// Details Section
+const detailsSection = pokemonProfileElement.querySelector('.detailsSection');
+const pokemonNameElement = detailsSection.querySelector('.pokemonName');
+const pokemonTypesSection = detailsSection.querySelector('.pokemonTypes');
+const pokemonDescriptionElement = detailsSection.querySelector('.pokemonDescription');
+
+// Pokemon Stats
+const pokemonStatsElement = detailsSection.querySelector('.pokemonStats');
+const hpElement = document.getElementById('hp');
+const atkElement = document.getElementById('atk');
+const defElement = document.getElementById('def');
+const speedElement = document.getElementById('speed');
+
+// More Info
+const moreInfoSection = detailsSection.querySelector('.moreInfo');
+const pokemonHeightElement = document.getElementById('pokemonHeight');
+const pokemonWeightElement = document.getElementById('pokemonWeight');
+const pokemonCategoryElement = document.getElementById('pokemonCategory');
+const pokemonAbilityElement = document.getElementById('pokemonAbility');
+
+// Image Section
+const imageSection = pokemonProfileElement.querySelector('.imageSection');
+const pokemonImageElement = imageSection.querySelector('.pokemonImage');
+
+function createTypeContainer(type) {
+    const container = document.createElement('div');
+    container.classList.add('pokemonType');
+    container.classList.add(type);
+
+    const icon = document.createElement('div');
+    icon.classList.add('typeIcon');
+    icon.appendChild(document.createElement('div'));
+
+    container.appendChild(icon);
+    container.append(capitalize(type));
+    return container;
+}
+
+function updateTypes(types) {
+    pokemonTypesSection.innerHTML = ' ';
+    types.forEach(type => pokemonTypesSection.appendChild(createTypeContainer(type)));
+}
+
+function updatePokemonProfile(pokemon) {
+    pokemonNameElement.textContent = pokemon.name;
+    pokemonImageElement.src = pokemon.image;
+    pokemonDescriptionElement.textContent = pokemon.getDescription();
+
+    updateTypes(pokemon.types);
+    document.body.className = pokemon.types[0];
+
+    hpElement.style.setProperty('--value', `${pokemon.stats.hp / MaxStatValues.hp * 100}%`);
+    atkElement.style.setProperty('--value', `${pokemon.stats.attack / MaxStatValues.atk * 100}%`);
+    defElement.style.setProperty('--value', `${pokemon.stats.defense / MaxStatValues.def * 100}%`);
+    speedElement.style.setProperty('--value', `${pokemon.stats.speed / MaxStatValues.speed * 100}%`);
+
+    pokemonHeightElement.textContent = `${pokemon.height / 10} m`;
+    pokemonWeightElement.textContent = `${pokemon.weight / 10} kg`;
+    pokemonCategoryElement.textContent = pokemon.category;
+    pokemonAbilityElement.textContent = pokemon.ability;
+}
+
+export { updatePokemonProfile };

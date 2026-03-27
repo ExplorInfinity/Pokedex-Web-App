@@ -1,5 +1,6 @@
 import { getSearchMatches, handleSearchBarInput, search } from "./search.js";
 import {createCard} from "./components/pokemonCard.js";
+import { updatePokemonProfile } from "./components/pokemonProfile.js";
 
 const searchBar = document.getElementById('searchBarInput');
 const searchSuggestionsList = document.getElementById('searchSuggestions');
@@ -35,7 +36,8 @@ searchBar.addEventListener('keydown', async (e) => {
 
         const pokemon_data = await search(input);
         console.log(pokemon_data);
-        createCard(pokemon_data);
+        // createCard(pokemon_data);
+        updatePokemonProfile(pokemon_data);
     }
 });
 
@@ -69,7 +71,9 @@ function appendListElement(text, value) {
         const input = listItem.getAttribute("value");
         searchSuggestionsList.innerHTML = '';
         currListIndex = -1;
-        console.log(await search(input));
+        const pokemon_data = await search(input);
+        console.log(pokemon_data);
+        updatePokemonProfile(pokemon_data);
     });
 
     return listItem;

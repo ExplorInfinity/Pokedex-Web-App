@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./stylesheets/pokemonProfile.css">
     <link rel="stylesheet" href="./stylesheets/pokemonTypeIcons.css">
 </head>
-<body>
+<body class="fire">
 
 
     <header>
@@ -36,42 +36,42 @@
             <div class="detailsSection">
                 <h1 class="pokemonName">Charizard Mega X</h1>
 
-                <div class="types">
-                    <div class="typeCapsule fire">
-                        <div class="typeIcon">
-                            <div></div>
-                        </div>
+                <div class="pokemonTypes">
+                    <div class="pokemonType fire">
+                        <div class="typeIcon"><div></div></div>
                         Fire
                     </div>
 
-                    <div class="typeCapsule flying">
-                        <div class="typeIcon">
-                            <div></div>
-                        </div>
+                    <div class="pokemonType flying">
+                        <div class="typeIcon"><div></div></div>
                         Flying
                     </div>
                 </div>
 
-                <div class="stats">
-                    <div class="stat">
+                <div class="pokemonDescription">
+                    Charizard flies around the sky in search of powerful opponents. It breathes fire of such great heat that it melts anything. However, it never turns its fiery breath on any opponent weaker than itself.
+                </div>
+
+                <div class="pokemonStats">
+                    <div id="hp" class="pokemonStat">
                         HP
                         <div class="strengthBar">
                             <div class="strength"></div>
                         </div>
                     </div>
-                    <div class="stat">
+                    <div id="atk" class="pokemonStat">
                         Attack
                         <div class="strengthBar">
                             <div class="strength"></div>
                         </div>
                     </div>
-                    <div class="stat">
+                    <div id="def" class="pokemonStat">
                         Defence
                         <div class="strengthBar">
                             <div class="strength"></div>
                         </div>
                     </div>
-                    <div class="stat">
+                    <div id="speed" class="pokemonStat">
                         Speed
                         <div class="strengthBar">
                             <div class="strength"></div>
@@ -82,24 +82,24 @@
                 <div class="moreInfo">
                     <div class="infoBox">
                         Height
-                        <div class="infoValue">17 m</div>
+                        <div id="pokemonHeight" class="infoValue">1.7 m</div>
                     </div>
                     <div class="infoBox">
                         Weight
-                        <div class="infoValue">1105 kg</div>
+                        <div id="pokemonWeight" class="infoValue">110.5 kg</div>
                     </div>
                     <div class="infoBox">
                         Category
-                        <div class="infoValue">Flame</div>
+                        <div id="pokemonCategory" class="infoValue">Flame</div>
                     </div>
                     <div class="infoBox">
-                        Abilities
-                        <div class="infoValue">Tough Claws</div>
+                        Ability
+                        <div id="pokemonAbility" class="infoValue">Tough Claws</div>
                     </div>
                 </div>
             </div>
 
-            <div class="viewSection">
+            <div class="imageSection">
                 <img class="pokemonImage" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10034.png" alt="Pokemon">
             </div>
 
