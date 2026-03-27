@@ -22,6 +22,10 @@ class Pokemon {
         return pokemon;
     }
 
+    getID() {
+        return `#${this.id.toString().padStart(4, '0')}`;
+    }
+
     getDescription() {
         return this.descriptions[Math.floor(Math.random() * this.descriptions.length)]
             .replace(/\f/g, " ")

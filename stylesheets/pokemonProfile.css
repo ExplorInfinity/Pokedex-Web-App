@@ -17,7 +17,10 @@
     /*color: whitesmoke;*/
     /*text-shadow: 2px 2px 2px rgb(0 0 0 / 0.4);*/
     color: black;
-    text-shadow: none;
+}
+
+.pokemonProfile .detailsSection .pokemonID {
+    color: #505050;
 }
 
 .pokemonProfile .detailsSection .pokemonStats {

@@ -4802,7 +4802,7 @@
   "past_stats": [],
   "past_types": [],
   "species": {
-    "name": "charizard",
+      "name": "charizard",
     "url": "https://pokeapi.co/api/v2/pokemon-species/6/"
   },
   "sprites": {

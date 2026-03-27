@@ -9,6 +9,7 @@ const pokemonProfileElement = document.querySelector('.pokemonProfile');
 // Details Section
 const detailsSection = pokemonProfileElement.querySelector('.detailsSection');
 const pokemonNameElement = detailsSection.querySelector('.pokemonName');
+const pokemonIDElement = detailsSection.querySelector('.pokemonID');
 const pokemonTypesSection = detailsSection.querySelector('.pokemonTypes');
 const pokemonDescriptionElement = detailsSection.querySelector('.pokemonDescription');
 
@@ -51,6 +52,7 @@ function updateTypes(types) {
 
 function updatePokemonProfile(pokemon) {
     pokemonNameElement.textContent = pokemon.name;
+    pokemonIDElement.textContent = pokemon.getID();
     pokemonImageElement.src = pokemon.image;
     pokemonDescriptionElement.textContent = pokemon.getDescription();
 
