@@ -13,6 +13,8 @@ class Pokemon {
         pokemon.ability = formatString(pokemonDetails.abilities.length ? pokemonDetails.abilities[0].ability.name : "None");
         pokemon.types = pokemonDetails.types.map(t => t.type.name);
         pokemon.image = pokemonDetails.sprites.other["official-artwork"].front_default;
+        pokemon.dreamWorldImg = pokemonDetails.sprites.other.dream_world.front_default;
+        pokemon.gif = pokemonDetails.sprites.other.showdown.front_default;
         pokemon.descriptions = pokemonDetails.flavor_text_entries.filter(e => e.language.name === "en").map(e => e.flavor_text);
         pokemon.category = pokemonDetails.genera.find(g => g.language.name === "en").genus;
 
@@ -60,7 +62,7 @@ class PokemonAPI {
         const pokemonDetails = await fetchURL(PokemonAPI.apiUrl + PokemonAPI.apiEndPoints.GET_POKEMON + pokemonName);
         const speciesDetails = await fetchURL(PokemonAPI.apiUrl + PokemonAPI.apiEndPoints.GET_POKEMON_SPECIES + pokemonDetails.species.name);
 
-        const pokemon = Pokemon.createPokemonInstance({ ...pokemonDetails, ...speciesDetails });
+        const pokemon = Pokemon.createPokemonInstance({ ...speciesDetails, ...pokemonDetails });
         PokemonAPI.cache.set(pokemonName, pokemon);
         return pokemon;
     }
