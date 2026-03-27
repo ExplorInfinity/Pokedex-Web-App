@@ -43,7 +43,8 @@ searchBar.addEventListener('keydown', async (e) => {
 
 function updateCurrentInputPreview(currentInput) {
     if (!currentInput) {
-        searchSuggestionsList.style.display = 'none';
+        clearList(true);
+        hideSuggestionsList();
         return;
     }
 
@@ -53,7 +54,7 @@ function updateCurrentInputPreview(currentInput) {
         currListItem = appendListElement(currentInput, currentInput.toLowerCase());
     } else currListItem = listItems[0];
 
-    searchSuggestionsList.style.display = 'block';
+    showSuggestionsList();
     currListIndex = 0;
     currListItem.textContent = currentInput;
     currListItem.setAttribute("value", currentInput.toLowerCase());
@@ -82,9 +83,8 @@ function appendListElement(text, value) {
 function clearList(clearInputPreview = false) {
     const listItems = document.querySelectorAll("#searchSuggestions li");
     if (listItems.length === 0) return;
-    for (let i = (clearInputPreview ? 0 : 1); i < listItems.length; i++) {
+    for (let i = (clearInputPreview ? 0 : 1); i < listItems.length; i++)
         listItems[i].remove();
-    }
 }
 
 function updateSearchList(suggestionsList, currInput) {
@@ -92,7 +92,7 @@ function updateSearchList(suggestionsList, currInput) {
     clearList();
 
     if (suggestionsList.length === 0 && currInput === "") {
-        searchSuggestionsList.style.display = 'none';
+        hideSuggestionsList();
         return;
     }
 
@@ -102,4 +102,12 @@ function updateSearchList(suggestionsList, currInput) {
         appendListElement(suggestionsList[i].name, suggestionsList[i].lowerCaseName);
 }
 
-export { updateSearchList, updateCurrentInputPreview };
+function showSuggestionsList() {
+    searchSuggestionsList.style.display = 'block';
+}
+
+function hideSuggestionsList() {
+    searchSuggestionsList.style.display = 'none';
+}
+
+export { updateSearchList, updateCurrentInputPreview, showSuggestionsList, hideSuggestionsList };

@@ -1,7 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chewy&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Inter", sans-serif;
 }
 
 body {
@@ -10,22 +14,68 @@ body {
     background-image: url("/assets/backgroundImage.svg");
     background-repeat: no-repeat;
     background-size: cover;
+    background-color: var(--icon-color, white);
+    background-blend-mode: overlay;
 }
 
 header {
     width: 100%;
     height: 100px;
+    display: grid;
+    grid-template-columns: auto 30%;
+    gap: 34px;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+#titleHolder {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     padding: 30px 40px;
-    margin-bottom: 10px;
+    gap: 15px;
+    background-color: rgb(255 255 255 / 0.25);
+    box-shadow: 0 1px 10px rgb(0 0 0 / 0.1);
+    border-radius: 0 0 150px 10px;
+    width: 100%;
+    height: 100%;
+}
+
+#logo {
+    width: 45px;
+    aspect-ratio: 1 / 1;
+    animation: rotate 10s linear;
+    filter: drop-shadow(1px 1px 5px rgba(0, 0, 0, 0.2));
+}
+
+@keyframes rotate {
+    0%, 4%, 8% {
+        transform: rotate(0deg);
+    }
+    2% {
+        transform: rotate(30deg);
+    }
+    6% {
+        transform: rotate(-30deg);
+    }
+}
+
+#title {
+    font-family: "Chewy", system-ui;
+    font-size: 40px;
+    color: #ffe355;
+    text-shadow: 1px 1px 1px blue, -1px -1px 3px red, -1px 1px 1px blue, 1px -1px 3px red, 3px 3px 5px rgb(0, 0, 0, 0.2);
 }
 
 .searchBar {
     --width: calc(100% - 80px);
-    width: 30%;
+    width: 100%;
     position: relative;
+}
+
+#searchBarInput::placeholder {
+    color: #b3b2b2;
+    font-size: 16px;
+    font-style: italic;
 }
 
 #searchBarInput {

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Pokedex</title>
@@ -8,13 +9,18 @@
     <link rel="stylesheet" href="./stylesheets/pokemonProfile.css">
     <link rel="stylesheet" href="./stylesheets/pokemonTypeIcons.css">
 </head>
+
 <body class="fire">
-
-
     <header>
-        <h1>Pokédex</h1>
+        <div id="titleHolder">
+            <img id="logo" src="./assets/pokeball.svg" alt="">
+            <h1 id="title">Pokédex</h1>
+        </div>
+
         <div class="searchBar">
-            <input type="text" id="searchBarInput" autocomplete="off">
+            <label for="searchBarInput">
+                <input type="text" id="searchBarInput" placeholder="Search by id or name" autocomplete="off">
+            </label>
             <ul id="searchSuggestions"></ul>
         </div>
     </header>

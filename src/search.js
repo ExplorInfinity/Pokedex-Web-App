@@ -1,11 +1,19 @@
 import {PokemonAPI} from './api.js'
-import {updateSearchList, updateCurrentInputPreview} from './searchList.js'
+import {updateSearchList, updateCurrentInputPreview, hideSuggestionsList, showSuggestionsList} from './searchList.js'
+import {isIntegerString} from "./utils.js";
 
 const debouncingTime = 300;
 const searchBar = document.getElementById('searchBarInput');
 
 async function search(input) {
     input = input.toLowerCase().trim();
+
+    // ID Check
+    if (isIntegerString(input) && Number(input) > 0 && Number(input) <= PokemonAPI.pokemonList.length ) {
+        return await PokemonAPI.getPokemonDetailsByID(Number(input));
+    }
+
+    // Name Check
     const pokemon = PokemonAPI.pokemonList.find(pokemon => input === pokemon.lowerCaseName);
     if (!pokemon) {
         alert("No Pokemon found.");
@@ -35,5 +43,8 @@ searchBar.addEventListener('input', () => {
     updateCurrentInputPreview(searchBar.value.trim());
     searchTimer = setTimeout(handleSearchBarInput, debouncingTime);
 });
+
+searchBar.addEventListener('focusin', showSuggestionsList);
+searchBar.addEventListener('focusout', hideSuggestionsList);
 
 export { getSearchMatches, handleSearchBarInput, search };

@@ -11,4 +11,8 @@ function createUrlString(pokemon) {
     return pokemon.split(' ').join('-');
 }
 
-export { capitalize, formatString, createUrlString };
+function isIntegerString(str) {
+    return /^\d+$/.test(str);
+}
+
+export { capitalize, formatString, createUrlString, isIntegerString };

@@ -45,6 +45,10 @@ class PokemonAPI {
         return data.results;
     }
 
+    static async getPokemonDetailsByID(pokemonID) {
+        return await this.getPokemonDetails(PokemonAPI.pokemonList[pokemonID-1].value);
+    }
+
     static async getPokemonDetails(pokemonName) {
         if (PokemonAPI.cache.has(pokemonName))
             return PokemonAPI.cache.get(pokemonName);
@@ -60,7 +64,7 @@ class PokemonAPI {
 
 async function preloadData() {
     PokemonAPI.pokemonList = await PokemonAPI.getAllPokemonNames();
-    PokemonAPI.pokemonList.sort((p1, p2) => p1.name < p2.name ? -1 : 1);
+    // PokemonAPI.pokemonList.sort((p1, p2) => p1.name < p2.name ? -1 : 1);
     PokemonAPI.pokemonList.forEach(pokemon => {
         pokemon.value = pokemon.name;
         pokemon.name = formatString(pokemon.name);
