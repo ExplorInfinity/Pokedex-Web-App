@@ -11,6 +11,10 @@
     padding: 20px 40px;
 }
 
+.pokemonProfile .detailsSection .pokemonID {
+    color: #505050;
+}
+
 .pokemonProfile .detailsSection .pokemonName {
     font-size: 3em;
     margin: 5px 0;
@@ -19,38 +23,36 @@
     color: black;
 }
 
-.pokemonProfile .detailsSection .pokemonID {
-    color: #505050;
+.pokemonProfile .detailsSection .pokemonTypes {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+    /*color: whitesmoke;*/
+    /*text-shadow: 1px 1px 1px rgb(0 0 0 / 0.4);*/
 }
 
 .pokemonProfile .detailsSection .pokemonStats {
-    margin-block: 40px;
-    font-size: 18px;
+    width: 50%;
     display: flex;
     flex-direction: column;
-    width: 50%;
     gap: 10px;
+    margin-block: 40px;
     padding: 0 20px;
+    font-size: 18px;
 }
 
 .pokemonProfile .detailsSection .pokemonStats .pokemonStat {
     --value: 70%;
+    --special-value: 70%;
+    --z-index: 2;
+    --special-z-index: 1;
 
     display: grid;
     grid-template-columns: auto 80%;
     justify-content: space-between;
     align-items: center;
     gap: 10px;
-}
-
-.pokemonProfile .detailsSection .pokemonTypes {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    gap: 10px;
-    /*font-size: 16px;*/
-    /*color: whitesmoke;*/
-    /*text-shadow: 1px 1px 1px rgb(0 0 0 / 0.4);*/
 }
 
 .pokemonProfile .detailsSection .pokemonDescription {
@@ -74,19 +76,30 @@
     background-color: #f3f3f3;
     position: relative;
     border-radius: 10px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.strengthBar .strength {
+.strengthBar .strength, .strengthBar .s_strength {
     display: inline-block;
-    width: var(--value);
     height: 100%;
-    background-color: crimson;
     position: absolute;
     left: 0;
     border-radius: 10px;
 }
 
-.moreInfo {
+.strengthBar .strength {
+    width: var(--value);
+    background-color: crimson;
+    z-index: var(--z-index, 2);
+}
+
+.strengthBar .s_strength {
+    width: var(--special-value);
+    background-color: #ff8080;
+    z-index: var(--special-z-index, 1);
+}
+
+.attributes {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;

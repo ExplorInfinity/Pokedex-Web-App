@@ -11,32 +11,22 @@
 </head>
 
 <body class="fire">
-    <header>
-        <div id="titleHolder">
-            <img id="logo" src="./assets/pokeball.svg" alt="">
-            <h1 id="title">Pokédex</h1>
-        </div>
-
-        <div class="searchBar">
-            <label for="searchBarInput">
-                <input type="text" id="searchBarInput" placeholder="Search by id or name" autocomplete="off">
-            </label>
-            <ul id="searchSuggestions"></ul>
-        </div>
-    </header>
 
     <main>
 
-        <div id="pokemonContainer" style="display: none">
-<!--            <div class="pokemonCard">-->
-<!--                <img class="pokemonImg"-->
-<!--                     src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/9.png"-->
-<!--                     alt="Blastoise">-->
-<!--                <div class="pokemonDetails">-->
-<!--                    <p class="pokemonName">Blastoise</p>-->
-<!--                </div>-->
-<!--            </div>-->
-        </div>
+        <header>
+            <div id="titleHolder">
+                <img id="logo" src="./assets/pokeball.svg" alt="">
+                <h1 id="title">Pokédex</h1>
+            </div>
+
+            <div class="searchBar">
+                <label for="searchBarInput">
+                    <input type="text" id="searchBarInput" placeholder="Search by id or name" autocomplete="off">
+                </label>
+                <ul id="searchSuggestions"></ul>
+            </div>
+        </header>
 
         <div class="pokemonProfile">
             <div class="detailsSection">
@@ -68,27 +58,29 @@
                             <div class="strength"></div>
                         </div>
                     </div>
-                    <div id="atk" class="pokemonStat">
-                        Attack
-                        <div class="strengthBar">
-                            <div class="strength"></div>
-                        </div>
-                    </div>
-                    <div id="def" class="pokemonStat">
-                        Defence
-                        <div class="strengthBar">
-                            <div class="strength"></div>
-                        </div>
-                    </div>
                     <div id="speed" class="pokemonStat">
                         Speed
                         <div class="strengthBar">
                             <div class="strength"></div>
                         </div>
                     </div>
+                    <div id="atk" class="pokemonStat">
+                        Attack
+                        <div class="strengthBar">
+                            <div class="s_strength"></div>
+                            <div class="strength"></div>
+                        </div>
+                    </div>
+                    <div id="def" class="pokemonStat">
+                        Defence
+                        <div class="strengthBar">
+                            <div class="s_strength"></div>
+                            <div class="strength"></div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="moreInfo">
+                <div class="attributes">
                     <div class="infoBox">
                         Height
                         <div id="pokemonHeight" class="infoValue">1.7 m</div>
@@ -115,6 +107,25 @@
         </div>
 
     </main>
+
+    <div class="additionalInfo">
+
+        <div id="evolutionChain">
+
+        </div>
+
+        <div id="pokemonContainer" style="display: none">
+            <div class="pokemonCard">
+                <img class="pokemonImg"
+                     src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/9.png"
+                     alt="Blastoise">
+                <div class="pokemonDetails">
+                    <p class="pokemonName">Blastoise</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <footer>
 

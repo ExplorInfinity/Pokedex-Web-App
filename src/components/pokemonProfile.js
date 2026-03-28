@@ -1,7 +1,7 @@
 import { capitalize } from '../utils.js';
 
 const MaxStatValues = {
-    hp: 714, def: 614, atk: 548, speed: 504
+    hp: 255, def: 230, atk: 190, speed: 200
 };
 
 const pokemonProfileElement = document.querySelector('.pokemonProfile');
@@ -18,10 +18,10 @@ const pokemonStatsElement = detailsSection.querySelector('.pokemonStats');
 const hpElement = document.getElementById('hp');
 const atkElement = document.getElementById('atk');
 const defElement = document.getElementById('def');
-const speedElement = document.getElementById('speed');
+const spdElement = document.getElementById('speed');
 
 // More Info
-const moreInfoSection = detailsSection.querySelector('.moreInfo');
+const attributesSection = detailsSection.querySelector('.attributes');
 const pokemonHeightElement = document.getElementById('pokemonHeight');
 const pokemonWeightElement = document.getElementById('pokemonWeight');
 const pokemonCategoryElement = document.getElementById('pokemonCategory');
@@ -50,6 +50,20 @@ function updateTypes(types) {
     types.forEach(type => pokemonTypesSection.appendChild(createTypeContainer(type)));
 }
 
+function updateStats(pokemonStats) {
+    hpElement .style.setProperty('--value', `${pokemonStats.hp / MaxStatValues.hp * 100}%`);
+    atkElement.style.setProperty('--value', `${pokemonStats.attack / MaxStatValues.atk * 100}%`);
+    atkElement.style.setProperty('--special-value', `${pokemonStats["special-attack"] / MaxStatValues.atk * 100}%`);
+    defElement.style.setProperty('--value', `${pokemonStats.defense / MaxStatValues.def * 100}%`);
+    defElement.style.setProperty('--special-value', `${pokemonStats["special-defense"] / MaxStatValues.def * 100}%`);
+    spdElement.style.setProperty('--value', `${pokemonStats.speed / MaxStatValues.speed * 100}%`);
+
+    defElement.style.setProperty("--z-index", (pokemonStats["special-defense"] <= pokemonStats["defense"]) ? 1 : 2);
+    defElement.style.setProperty("--special-z-index", (pokemonStats["special-defense"] <= pokemonStats["defense"]) ? 2 : 1);
+    atkElement.style.setProperty("--z-index", (pokemonStats["special-attack"] <= pokemonStats["attack"]) ? 1 : 2);
+    atkElement.style.setProperty("--special-z-index", (pokemonStats["special-attack"] <= pokemonStats["attack"]) ? 2 : 1);
+}
+
 function updatePokemonProfile(pokemon) {
     pokemonNameElement.textContent = pokemon.name;
     pokemonIDElement.textContent = pokemon.getID();
@@ -59,10 +73,7 @@ function updatePokemonProfile(pokemon) {
     updateTypes(pokemon.types);
     document.body.className = pokemon.types[0];
 
-    hpElement.style.setProperty('--value', `${pokemon.stats.hp / MaxStatValues.hp * 100}%`);
-    atkElement.style.setProperty('--value', `${pokemon.stats.attack / MaxStatValues.atk * 100}%`);
-    defElement.style.setProperty('--value', `${pokemon.stats.defense / MaxStatValues.def * 100}%`);
-    speedElement.style.setProperty('--value', `${pokemon.stats.speed / MaxStatValues.speed * 100}%`);
+    updateStats(pokemon.stats);
 
     pokemonHeightElement.textContent = `${pokemon.height / 10} m`;
     pokemonWeightElement.textContent = `${pokemon.weight / 10} kg`;

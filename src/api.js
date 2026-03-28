@@ -1,6 +1,7 @@
 import fetchURL from './fetch.js';
 import {formatString} from "./utils.js";
 
+// noinspection JSUnresolvedReference
 class Pokemon {
     static createPokemonInstance(pokemonDetails) {
         const pokemon = new Pokemon();
@@ -17,6 +18,7 @@ class Pokemon {
         pokemon.gif = pokemonDetails.sprites.other.showdown.front_default;
         pokemon.descriptions = pokemonDetails.flavor_text_entries.filter(e => e.language.name === "en").map(e => e.flavor_text);
         pokemon.category = pokemonDetails.genera.find(g => g.language.name === "en").genus;
+        pokemon.evolutionChain = pokemonDetails.evolution_chain;
 
         pokemon.stats = {};
         pokemonDetails.stats.forEach(s => pokemon.stats[s.stat.name] = s.base_stat );
@@ -32,6 +34,10 @@ class Pokemon {
         return this.descriptions[Math.floor(Math.random() * this.descriptions.length)]
             .replace(/\f/g, " ")
             .replace(/\n/g, " ");
+    }
+
+    getEvolutionChain() {
+
     }
 }
 
@@ -61,6 +67,7 @@ class PokemonAPI {
 
         const pokemonDetails = await fetchURL(PokemonAPI.apiUrl + PokemonAPI.apiEndPoints.GET_POKEMON + pokemonName);
         const speciesDetails = await fetchURL(PokemonAPI.apiUrl + PokemonAPI.apiEndPoints.GET_POKEMON_SPECIES + pokemonDetails.species.name);
+        speciesDetails.evolution_chain = await fetchURL(speciesDetails.evolution_chain.url);
 
         const pokemon = Pokemon.createPokemonInstance({ ...speciesDetails, ...pokemonDetails });
         PokemonAPI.cache.set(pokemonName, pokemon);

@@ -11,11 +11,14 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
     overflow-x: hidden;
+}
+
+main {
     background-image: url("/assets/backgroundImage.svg");
     background-repeat: no-repeat;
     background-size: cover;
-    background-color: var(--icon-color, white);
     background-blend-mode: overlay;
+    background-color: var(--icon-color, white);
 }
 
 header {
@@ -77,7 +80,7 @@ header {
     height: 50px;
     font-size: 20px;
     margin: 0 40px;
-    padding: 10px 25px;
+    padding: 10px 15px;
     text-overflow: ellipsis;
     background-color: whitesmoke;
     border: 1px ridge black;
@@ -127,8 +130,12 @@ header {
 }
 
 #pokemonContainer {
-    margin: 40px;
+    /*margin: 40px;*/
+    padding: 40px;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 40px 20px;
+    background-color: var(--icon-color, white);
+    background-blend-mode: overlay;
+    background-image: linear-gradient(to right, #dadada, #dadada);
 }
