@@ -6,8 +6,7 @@
     color: black;
     text-shadow: none;
     display: flex;
-    gap: 15px;
-    justify-content: center;
+    gap: 10px;
     align-items: center;
     background-color: var(--icon-color);
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);

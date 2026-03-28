@@ -62,11 +62,12 @@
 }
 
 .pokemonProfile .imageSection {
-
+    position: relative;
 }
 
 .pokemonProfile .imageSection .pokemonImage {
-    margin-top: 25%;
+    position: absolute;
+    bottom: 20%;
 }
 
 .strengthBar {
