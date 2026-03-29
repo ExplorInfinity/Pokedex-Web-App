@@ -37,15 +37,19 @@ class PokemonAPI {
 }
 
 async function preloadData() {
+    if (localStorage.getItem('pokemonList')) {
+        PokemonAPI.pokemonList = JSON.parse(localStorage.getItem('pokemonList'));
+        return;
+    }
+
     PokemonAPI.pokemonList = await PokemonAPI.getAllPokemonNames();
-    // PokemonAPI.pokemonList.sort((p1, p2) => p1.name < p2.name ? -1 : 1);
     PokemonAPI.pokemonList.forEach(pokemon => {
         pokemon.value = pokemon.name;
         pokemon.name = formatString(pokemon.name);
         pokemon.lowerCaseName = pokemon.name.toLowerCase();
     });
 
-    console.log(PokemonAPI.pokemonList);
+    localStorage.setItem('pokemonList', JSON.stringify(PokemonAPI.pokemonList));
 }
 
 export { PokemonAPI, preloadData };

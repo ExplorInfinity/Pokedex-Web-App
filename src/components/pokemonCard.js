@@ -29,15 +29,11 @@ function showAllImages(card, pokemon) {
 }
 
 function createCard(pokemon) {
-    console.log(pokemon.sprites);
-
-    const { front_default: mainDisplayImageUrl } = pokemon.sprites.other["official-artwork"];
-
     const card = document.createElement('div');
     card.classList.add('pokemonCard');
+    card.classList.add(pokemon.types[0]);
 
-    const pokemonImage = document.createElement("img");
-    pokemonImage.src = mainDisplayImageUrl;
+    const pokemonImage = createImageTag(pokemon.image);
     pokemonImage.classList.add('pokemonImg');
 
     const cardDetails = document.createElement("div");
@@ -45,13 +41,13 @@ function createCard(pokemon) {
 
     const pokemonName = document.createElement("p");
     pokemonName.classList.add('pokemonName');
-    pokemonName.textContent = formatString(pokemon.name);
+    pokemonName.textContent = pokemon.name;
 
     cardDetails.appendChild(pokemonName);
     card.appendChild(pokemonImage);
     card.appendChild(cardDetails);
 
-    pokemonContainer.appendChild(card);
+    return card;
 }
 
 export { createCard };

@@ -15,4 +15,15 @@ function isIntegerString(str) {
     return /^\d+$/.test(str);
 }
 
-export { capitalize, formatString, createUrlString, isIntegerString };
+function storeMap(key, map) {
+    localStorage.setItem(key, JSON.stringify(Object.fromEntries(map)));
+}
+
+function getStoredMap(key) {
+    if (!localStorage.getItem(key))
+        return null;
+    const obj = JSON.parse(localStorage.getItem(key));
+    return new Map(Object.entries(obj));
+}
+
+export { capitalize, formatString, createUrlString, isIntegerString, storeMap, getStoredMap };

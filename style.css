@@ -11,6 +11,9 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
     overflow-x: hidden;
+    background-color: var(--icon-color, white);
+    background-blend-mode: overlay;
+    background-image: linear-gradient(to right, #dadada, #dadada);
 }
 
 main {
@@ -98,11 +101,11 @@ header {
     list-style: none;
     position: absolute;
     top: 100%;
-    /*border: 1px solid black;*/
     border-top: none;
     border-radius: 0 0 5px 5px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     background-color: white;
+    z-index: 100;
 }
 
 #searchSuggestions li {
@@ -129,13 +132,46 @@ header {
     transition: translate 0.1s;
 }
 
+.light-solid-color, .dark-solid-color {
+    background-color: var(--icon-color, white);
+    background-blend-mode: overlay;
+}
+
+.light-solid-color {
+    background-image: linear-gradient(to right, #dadada, #dadada);
+}
+
+.dark-solid-color {
+    background-image: linear-gradient(to right, #CCCCCC, #CCCCCC);
+}
+
 #pokemonContainer {
-    /*margin: 40px;*/
     padding: 40px;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 40px 20px;
-    background-color: var(--icon-color, white);
-    background-blend-mode: overlay;
-    background-image: linear-gradient(to right, #dadada, #dadada);
+}
+
+footer {
+    height: 100px;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: gray;
+}
+
+.text-outline {
+    --t: 0.5px;
+    text-shadow:
+            0 0 calc(var(--t) * 0.5) black,
+            var(--t) 0 calc(var(--t) * 0.5) black,
+            calc(-1 * var(--t)) 0 calc(var(--t) * 0.5) black,
+            0 var(--t) calc(var(--t) * 0.5) black,
+            0 calc(-1 * var(--t)) calc(var(--t) * 0.5) black,
+            var(--t) var(--t) calc(var(--t) * 0.7) black,
+            calc(-1 * var(--t)) calc(-1 * var(--t)) calc(var(--t) * 0.7) black,
+            var(--t) calc(-1 * var(--t)) calc(var(--t) * 0.7) black,
+            calc(-1 * var(--t)) var(--t) calc(var(--t) * 0.7) black;
 }

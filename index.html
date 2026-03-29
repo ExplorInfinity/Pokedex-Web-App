@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./stylesheets/pokemonCard.css">
     <link rel="stylesheet" href="./stylesheets/pokemonProfile.css">
     <link rel="stylesheet" href="./stylesheets/pokemonTypeIcons.css">
+    <link rel="stylesheet" href="stylesheets/favorites.css">
 </head>
 
 <body class="fire">
@@ -101,6 +102,11 @@
             </div>
 
             <div class="imageSection">
+                <span id="pokemonFavoriteBtn" class="favoriteBtn">
+                    <svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2 9.1371C2 14 6.01943 16.5914 8.96173 18.9109C10 19.7294 11 20.5 12 20.5C13 20.5 14 19.7294 15.0383 18.9109C17.9806 16.5914 22 14 22 9.1371C22 4.27416 16.4998 0.825464 12 5.50063C7.50016 0.825464 2 4.27416 2 9.1371Z" fill="#db2c4f" stroke=""/>
+                    </svg>
+                </span>
                 <img class="pokemonImage" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10034.png" alt="Pokemon">
             </div>
 
@@ -108,7 +114,7 @@
 
     </main>
 
-    <div class="additionalInfo">
+    <div id="additionalInfo">
 
         <div id="evolutionChain">
 
@@ -124,12 +130,56 @@
                 </div>
             </div>
         </div>
+
+        <div id="favoritesContainer">
+            <div class="heading">
+                <span>Favorites</span>
+                <span>Favorites</span>
+            </div>
+            <div id="favorites" class="light-solid-color">
+                <div class="pokemonCard water">
+                    <img class="pokemonImg"
+                         src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/9.png"
+                         alt="Blastoise">
+                    <div class="pokemonDetails">
+                        <p class="pokemonName">Blastoise</p>
+                        <div class="favoriteBtn">
+                            <img src="assets/filledHeart.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="pokemonCard fire">
+                    <img class="pokemonImg"
+                         src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10034.png"
+                         alt="Charizard Mega X">
+                    <div class="pokemonDetails">
+                        <p class="pokemonName">Charizard Mega X</p>
+                        <div class="favoriteBtn">
+                            <img src="assets/filledHeart.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="pokemonCard ghost">
+                    <img class="pokemonImg"
+                         src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10291.png"
+                         alt="Chandelure Mega">
+                    <div class="pokemonDetails">
+                        <p class="pokemonName">Chandelure Mega</p>
+                        <div class="favoriteBtn">
+                            <img src="assets/filledHeart.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
-
-    <footer>
-
+    <footer style="display: none" class="dark-solid-color">
+        <p>© 2026 Aditya Singla | Pokédex</p>
+        <p>Data provided by PokéAPI</p>
     </footer>
+
 
     <script type="module" src="index.js"></script>
 </body>

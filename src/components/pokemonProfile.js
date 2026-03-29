@@ -1,4 +1,5 @@
 import { capitalize } from '../utils.js';
+import {setFavorite, showFavorites} from "../favorites.js";
 
 const MaxStatValues = {
     hp: 255, def: 230, atk: 190, speed: 200
@@ -30,6 +31,16 @@ const pokemonAbilityElement = document.getElementById('pokemonAbility');
 // Image Section
 const imageSection = pokemonProfileElement.querySelector('.imageSection');
 const pokemonImageElement = imageSection.querySelector('.pokemonImage');
+
+let currentPokemon = null;
+const favoriteBtn = document.getElementById('pokemonFavoriteBtn');
+favoriteBtn.addEventListener('click', async e => {
+    e.preventDefault();
+    if (currentPokemon) {
+        setFavorite(currentPokemon);
+        await showFavorites();
+    }
+});
 
 function createTypeContainer(type) {
     const container = document.createElement('div');
@@ -79,6 +90,8 @@ function updatePokemonProfile(pokemon) {
     pokemonWeightElement.textContent = `${pokemon.weight / 10} kg`;
     pokemonCategoryElement.textContent = pokemon.category;
     pokemonAbilityElement.textContent = pokemon.ability;
+
+    currentPokemon = pokemon;
 }
 
 export { updatePokemonProfile };

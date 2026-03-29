@@ -48,8 +48,7 @@ The Pokédex Web App is an interactive web application that allows users to expl
 
 * [ ] Card-based layout
 * [ ] Responsive design (mobile/tablet/desktop)
-* [ ] Type-based color coding
-* [ ] Dark mode toggle
+* [x] Type-based color coding
 
 ---
 
@@ -84,7 +83,7 @@ The Pokédex Web App is an interactive web application that allows users to expl
 * [x] Debouncing (search optimization)
 * [ ] Pagination / Infinite scroll
 * [ ] Loading indicators
-* [ ] Local storage support
+* [x] Local storage support
 
 ---
 
