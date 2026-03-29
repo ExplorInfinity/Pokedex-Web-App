@@ -1,9 +1,10 @@
-import {PokemonAPI} from './api.js'
-import {updateSearchList, updateCurrentInputPreview, hideSuggestionsList, showSuggestionsList} from './searchList.js'
-import {isIntegerString} from "./utils.js";
+import { PokemonAPI } from './api.js'
+import { updateSearchList, updateCurrentInputPreview, hideSuggestionsList, showSuggestionsList } from './searchList.js'
+import { isIntegerString } from "./utils.js";
 
 const debouncingTime = 300;
 const searchBar = document.getElementById('searchBarInput');
+const searchBarContainer = document.querySelector('.searchBar');
 
 async function search(input) {
     input = input.toLowerCase().trim();
@@ -45,6 +46,8 @@ searchBar.addEventListener('input', () => {
 });
 
 searchBar.addEventListener('focusin', showSuggestionsList);
-searchBar.addEventListener('focusout', hideSuggestionsList);
+searchBar.addEventListener('focusout', (e) => {
+    if(!searchBarContainer.contains(document.activeElement)) hideSuggestionsList();
+});
 
 export { getSearchMatches, handleSearchBarInput, search };
