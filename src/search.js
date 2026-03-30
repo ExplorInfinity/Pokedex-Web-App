@@ -1,5 +1,5 @@
 import { PokemonAPI } from './api.js'
-import { updateSearchList, updateCurrentInputPreview, hideSuggestionsList, showSuggestionsList } from './searchList.js'
+import { updateSearchList, updateCurrentInputPreview, hideSuggestionsList, showSuggestionsList } from './suggestionList.js'
 import { isIntegerString } from "./utils.js";
 
 const debouncingTime = 300;
@@ -45,9 +45,17 @@ searchBar.addEventListener('input', () => {
     searchTimer = setTimeout(handleSearchBarInput, debouncingTime);
 });
 
-searchBar.addEventListener('focusin', showSuggestionsList);
-searchBar.addEventListener('focusout', (e) => {
-    if(!searchBarContainer.contains(document.activeElement)) hideSuggestionsList();
+let focused = false;
+searchBar.addEventListener('focusin', () => {
+    focused = true;
+    showSuggestionsList();
+});
+window.addEventListener('click', e => {
+    if (focused && !searchBarContainer.contains(e.target)) {
+        focused = false;
+        searchBar.blur();
+        hideSuggestionsList();
+    }
 });
 
 export { getSearchMatches, handleSearchBarInput, search };
