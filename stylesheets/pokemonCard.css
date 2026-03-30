@@ -27,7 +27,7 @@
     object-fit: contain;
     background-color: var(--icon-color);
     background-blend-mode: overlay;
-    background-image: linear-gradient(to right, #dadada, #dadada);
+    background-image: linear-gradient(to right, #ccc, #ccc);
 }
 
 .pokemonCard .pokemonDetails {
