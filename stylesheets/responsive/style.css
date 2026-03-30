@@ -1,0 +1,37 @@
+@media screen and (max-width: 700px) {
+
+    main {
+        background-image: linear-gradient(to right, #b3b3b3, #b3b3b3);
+    }
+
+    header {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+    }
+
+
+    #titleHolder {
+        width: 100%;
+        padding: 20px;
+        border-radius: 0;
+        background-color: rgb(255 255 255 / 0.2);
+        box-shadow: 0 2px 10px rgb(0 0 0 / 0.1);
+    }
+
+    #logo {
+        width: 40px;
+    }
+
+    #titleHolder h1 {
+        font-size: 36px;
+    }
+
+    .light-solid-color {
+        background-image: linear-gradient(to right, #cccccc, #cccccc);
+    }
+
+    .dark-solid-color {
+        background-image: linear-gradient(to right, #b3b3b3, #b3b3b3) !important;
+    }
+}

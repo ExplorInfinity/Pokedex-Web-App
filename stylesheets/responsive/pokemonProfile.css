@@ -1,0 +1,69 @@
+@media screen and (max-width: 700px) {
+    .pokemonProfile {
+        display: flex;
+        flex-direction: column;
+        height: max-content;
+        justify-content: center;
+        align-items: center;
+        gap: 0;
+    }
+
+    .pokemonProfile .detailsSection {
+        padding: 20px;
+    }
+
+    .pokemonProfile .detailsSection .pokemonDescription {
+        margin: 20px 10px 0;
+        font-size: 16px;
+    }
+
+    .pokemonProfile .detailsSection .pokemonStats {
+        width: 100%;
+        padding: 0 10px;
+        font-size: 14px;
+    }
+
+    .attributes {
+        width: 100%;
+        font-size: 14px;
+        gap: 5px 20px;
+    }
+
+    .infoBox {
+        font-size: 14px;
+    }
+
+    .infoBox:nth-last-child(1), .infoBox:nth-last-child(2) {
+        grid-column: span 2;
+    }
+
+    .infoBox .infoValue {
+        text-wrap: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    .pokemonProfile .imageSection {
+        order: -1;
+        background-blend-mode: overlay;
+        background-color: var(--icon-color, white);
+        background-image: linear-gradient(to right, #cccccc, #cccccc);
+        margin-bottom: 10px;
+        border-radius: 5px;
+        margin-inline: 20px;
+    }
+
+    .pokemonProfile .imageSection .pokemonImage {
+        position: static;
+        width: 100%;
+        padding: 20px;
+    }
+
+    .pokemonProfile .imageSection .favoriteBtn {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 30px;
+        aspect-ratio: 1 / 1;
+        margin: 20px;
+    }
+}

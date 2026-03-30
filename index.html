@@ -3,15 +3,20 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokedex</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="./stylesheets/pokemonCard.css">
     <link rel="stylesheet" href="./stylesheets/pokemonProfile.css">
     <link rel="stylesheet" href="./stylesheets/pokemonTypeIcons.css">
-    <link rel="stylesheet" href="stylesheets/favorites.css">
+    <link rel="stylesheet" href="./stylesheets/favorites.css">
+    <link rel="stylesheet" href="stylesheets/responsive/style.css">
+    <link rel="stylesheet" href="stylesheets/responsive/pokemonProfile.css">
+    <link rel="stylesheet" href="stylesheets/responsive/favorites.css">
+    <link rel="stylesheet" href="stylesheets/responsive/pokemonCard.css">
 </head>
 
-<body class="fire">
+<body class="light-solid-color fire">
 
     <main>
 
@@ -131,46 +136,15 @@
             </div>
         </div>
 
-        <div id="favoritesContainer">
+        <div id="favoritesContainer" class="dark-solid-color">
             <div class="heading">
                 <span>Favorites</span>
                 <span>Favorites</span>
             </div>
-            <div id="favorites" class="light-solid-color">
-                <div class="pokemonCard water">
-                    <img class="pokemonImg"
-                         src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/9.png"
-                         alt="Blastoise">
-                    <div class="pokemonDetails">
-                        <p class="pokemonName">Blastoise</p>
-                        <div class="favoriteBtn">
-                            <img src="assets/filledHeart.svg" alt="">
-                        </div>
-                    </div>
-                </div>
-                <div class="pokemonCard fire">
-                    <img class="pokemonImg"
-                         src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10034.png"
-                         alt="Charizard Mega X">
-                    <div class="pokemonDetails">
-                        <p class="pokemonName">Charizard Mega X</p>
-                        <div class="favoriteBtn">
-                            <img src="assets/filledHeart.svg" alt="">
-                        </div>
-                    </div>
-                </div>
-                <div class="pokemonCard ghost">
-                    <img class="pokemonImg"
-                         src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10291.png"
-                         alt="Chandelure Mega">
-                    <div class="pokemonDetails">
-                        <p class="pokemonName">Chandelure Mega</p>
-                        <div class="favoriteBtn">
-                            <img src="assets/filledHeart.svg" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div id="f-wrapper">
+                <div id="favorites" class="light-solid-color"></div>
+                <div class="shadowContainer"></div>
+            </div
         </div>
 
     </div>

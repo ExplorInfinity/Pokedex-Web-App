@@ -11,9 +11,6 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
     overflow-x: hidden;
-    background-color: var(--icon-color, white);
-    background-blend-mode: overlay;
-    background-image: linear-gradient(to right, #dadada, #dadada);
 }
 
 main {
@@ -160,18 +157,4 @@ footer {
     justify-content: center;
     align-items: center;
     background-color: gray;
-}
-
-.text-outline {
-    --t: 0.5px;
-    text-shadow:
-            0 0 calc(var(--t) * 0.5) black,
-            var(--t) 0 calc(var(--t) * 0.5) black,
-            calc(-1 * var(--t)) 0 calc(var(--t) * 0.5) black,
-            0 var(--t) calc(var(--t) * 0.5) black,
-            0 calc(-1 * var(--t)) calc(var(--t) * 0.5) black,
-            var(--t) var(--t) calc(var(--t) * 0.7) black,
-            calc(-1 * var(--t)) calc(-1 * var(--t)) calc(var(--t) * 0.7) black,
-            var(--t) calc(-1 * var(--t)) calc(var(--t) * 0.7) black,
-            calc(-1 * var(--t)) var(--t) calc(var(--t) * 0.7) black;
 }

@@ -1,6 +1,7 @@
 import fetchURL from './fetch.js';
-import { formatString } from "./utils.js";
+import {formatString, getLocalStorage} from "./utils.js";
 import Pokemon from "./pokemon.js";
+import pokemon from "./pokemon.js";
 
 class PokemonAPI {
 
@@ -10,16 +11,19 @@ class PokemonAPI {
         GET_POKEMON_SPECIES: 'pokemon-species/'
     };
 
+
     static cache = new Map();
 
+    static async getAllPokemonCount() {
+        return (await fetchURL("https://pokeapi.co/api/v2/pokemon-species/")).count;
+    }
+
     static async getAllPokemonNames() {
-        const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=100000");
-        const data = await res.json();
-        return data.results;
+        return (await fetchURL("https://pokeapi.co/api/v2/pokemon-species?limit=100000")).results;
     }
 
     static async getPokemonDetailsByID(pokemonID) {
-        return await this.getPokemonDetails(PokemonAPI.pokemonList[pokemonID-1].value);
+        return await this.getPokemonDetails(PokemonAPI.pokemonList[pokemonID - 1].value);
     }
 
     static async getPokemonDetails(pokemonName) {
@@ -34,11 +38,16 @@ class PokemonAPI {
         PokemonAPI.cache.set(pokemonName, pokemon);
         return pokemon;
     }
+
+    static getRandomPokemon() {
+        return PokemonAPI.pokemonList[Math.floor(Math.random() * PokemonAPI.pokemonList.length)];
+    }
 }
 
 async function preloadData() {
-    if (localStorage.getItem('pokemonList')) {
-        PokemonAPI.pokemonList = JSON.parse(localStorage.getItem('pokemonList'));
+    const local = getLocalStorage('pokemonList');
+    if (local && local.length === await PokemonAPI.getAllPokemonCount()) {
+        PokemonAPI.pokemonList = local;
         return;
     }
 

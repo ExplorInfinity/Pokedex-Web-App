@@ -83,7 +83,7 @@ function updatePokemonProfile(pokemon) {
     pokemonDescriptionElement.textContent = pokemon.getDescription();
 
     updateTypes(pokemon.types);
-    document.body.className = pokemon.types[0];
+    document.body.className = `${pokemon.types[0]} light-solid-color`;
 
     updateStats(pokemon.stats);
 

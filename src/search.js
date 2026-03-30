@@ -10,7 +10,7 @@ async function search(input) {
     input = input.toLowerCase().trim();
 
     // ID Check
-    if (isIntegerString(input) && Number(input) > 0 && Number(input) <= PokemonAPI.pokemonList.length ) {
+    if (isIntegerString(input) && Number(input) > 0 && Number(input) <= PokemonAPI.pokemonList.length) {
         return await PokemonAPI.getPokemonDetailsByID(Number(input));
     }
 

@@ -7,7 +7,7 @@
     min-width: 240px;
     min-height: 280px;
     overflow: hidden;
-    box-shadow: 5px 5px 5px var(--accent-color);
+    box-shadow: 5px 5px 10px var(--accent-color);
     display: grid;
     grid-template-rows: auto 40px;
     position: relative;
