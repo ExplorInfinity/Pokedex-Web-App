@@ -14,6 +14,7 @@ async function showFavorites() {
         return;
     }
 
+    favoritesWrapper.style.display = "flex";
     favoritesContainer.innerHTML = '';
     for (const favorite of favorites) {
         const card = createCard(await PokemonAPI.getPokemonDetailsByID(favorite));
