@@ -9,7 +9,7 @@ const favorites = getLocalStorage("favorites") ?? [];
 const favoritesSet = new Set(favorites);
 
 async function showFavorites() {
-    if (favorites.size === 0) {
+    if (favorites.length === 0) {
         favoritesWrapper.style.display = "none";
         return;
     }
