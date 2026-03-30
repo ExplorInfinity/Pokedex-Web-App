@@ -45,16 +45,23 @@ searchBar.addEventListener('input', () => {
     searchTimer = setTimeout(handleSearchBarInput, debouncingTime);
 });
 
-let focused = false;
-searchBar.addEventListener('focusin', () => {
-    focused = true;
-    showSuggestionsList();
-});
+searchBar.addEventListener('focusin', showSuggestionsList);
+
 window.addEventListener('click', e => {
-    if (focused && !searchBarContainer.contains(e.target)) {
-        focused = false;
+    if (!searchBarContainer.contains(e.target)) {
         searchBar.blur();
         hideSuggestionsList();
+    }
+});
+
+window.addEventListener('keydown', e => {
+    if (e.metaKey && e.code === 'KeyK') {
+        e.preventDefault();
+        searchBar.focus();
+    }
+
+    if (e.code === 'Escape' && document.activeElement === searchBar) {
+        searchBar.blur();
     }
 });
 

@@ -14,7 +14,7 @@ class Pokemon {
         pokemon.image = pokemonDetails.sprites.other["official-artwork"].front_default;
         pokemon.dreamWorldImg = pokemonDetails.sprites.other.dream_world.front_default;
         pokemon.gif = pokemonDetails.sprites.other.showdown.front_default;
-        pokemon.descriptions = pokemonDetails.flavor_text_entries.filter(e => e.language.name === "en").map(e => e.flavor_text);
+        pokemon.descriptions = pokemonDetails.flavor_text_entries.filter(e => e.language.name === "en").map(e => e.flavor_text.replace(/\f/g, " ").replace(/\n/g, " "));
         pokemon.category = pokemonDetails.genera.find(g => g.language.name === "en").genus;
         pokemon.evolutionChain = pokemonDetails.evolution_chain;
 
@@ -29,9 +29,7 @@ class Pokemon {
     }
 
     getDescription() {
-        return this.descriptions[Math.floor(Math.random() * this.descriptions.length)]
-            .replace(/\f/g, " ")
-            .replace(/\n/g, " ");
+        return this.descriptions[Math.floor(Math.random() * this.descriptions.length)];
     }
 
     getEvolutionChain() {

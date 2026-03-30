@@ -87,9 +87,15 @@
     height: 100%;
 }
 
-.pokemonProfile .imageSection .favoriteBtn svg path {
-    fill: none !important;
-    stroke: black !important;
+.pokemonProfile .imageSection .favoriteBtn path {
+    fill: none;
+    stroke: black;
+    transition: all 200ms;
+}
+
+.filledHeart svg path {
+    fill: crimson !important;
+    stroke: none !important;
 }
 
 .strengthBar {

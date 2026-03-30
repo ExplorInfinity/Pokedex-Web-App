@@ -35,9 +35,9 @@ searchBar.addEventListener('keydown', async (e) => {
         currListIndex = -1;
 
         const pokemon_data = await search(input);
-        console.log(pokemon_data);
-        // createCard(pokemon_data);
         updatePokemonProfile(pokemon_data);
+
+        searchBar.blur();
     }
 });
 
@@ -73,7 +73,6 @@ function appendListElement(text, value) {
         clearList(true);
         currListIndex = -1;
         const pokemon_data = await search(input);
-        console.log(pokemon_data);
         updatePokemonProfile(pokemon_data);
     });
 

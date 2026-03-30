@@ -26,4 +26,14 @@ function getStoredMap(key) {
     return new Map(Object.entries(obj));
 }
 
-export { capitalize, formatString, createUrlString, isIntegerString, storeMap, getStoredMap };
+function getLocalStorage(key) {
+    if (!localStorage.getItem(key))
+        return null;
+    return JSON.parse(localStorage.getItem(key));
+}
+
+function setLocalStorage(key, value) {
+    localStorage.setItem(key, JSON.stringify(value));
+}
+
+export { capitalize, formatString, createUrlString, isIntegerString, storeMap, getStoredMap, getLocalStorage, setLocalStorage };

@@ -1,4 +1,5 @@
-import {formatString} from "../utils.js";
+import { updatePokemonProfile } from "./pokemonProfile.js";
+import { PokemonAPI } from "../api.js";
 
 const pokemonContainer = document.getElementById('pokemonContainer');
 
@@ -46,6 +47,10 @@ function createCard(pokemon) {
     cardDetails.appendChild(pokemonName);
     card.appendChild(pokemonImage);
     card.appendChild(cardDetails);
+
+    card.addEventListener('click', async () => {
+        updatePokemonProfile(await PokemonAPI.getPokemonDetailsByID(pokemon.id));
+    });
 
     return card;
 }

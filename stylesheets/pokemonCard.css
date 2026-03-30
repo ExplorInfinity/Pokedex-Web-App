@@ -4,11 +4,22 @@
     border-radius: 5px;
     width: 240px;
     height: 280px;
+    min-width: 240px;
+    min-height: 280px;
     overflow: hidden;
     box-shadow: 5px 5px 5px var(--accent-color);
     display: grid;
     grid-template-rows: auto 40px;
     position: relative;
+    cursor: pointer;
+}
+
+.pokemonCard:hover {
+    filter: brightness(0.9);
+}
+
+.pokemonCard:active {
+    filter: brightness(1.1);
 }
 
 .pokemonCard .pokemonImg {

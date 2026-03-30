@@ -1,5 +1,5 @@
 import { capitalize } from '../utils.js';
-import {setFavorite, showFavorites} from "../favorites.js";
+import { hasFavorite, toggleFavorite, showFavorites } from "../favorites.js";
 
 const MaxStatValues = {
     hp: 255, def: 230, atk: 190, speed: 200
@@ -36,8 +36,9 @@ let currentPokemon = null;
 const favoriteBtn = document.getElementById('pokemonFavoriteBtn');
 favoriteBtn.addEventListener('click', async e => {
     e.preventDefault();
+    favoriteBtn.classList.toggle('filledHeart');
     if (currentPokemon) {
-        setFavorite(currentPokemon);
+        toggleFavorite(currentPokemon);
         await showFavorites();
     }
 });
@@ -90,6 +91,11 @@ function updatePokemonProfile(pokemon) {
     pokemonWeightElement.textContent = `${pokemon.weight / 10} kg`;
     pokemonCategoryElement.textContent = pokemon.category;
     pokemonAbilityElement.textContent = pokemon.ability;
+
+    if(hasFavorite(pokemon))
+        favoriteBtn.classList.add('filledHeart');
+    else
+        favoriteBtn.classList.remove('filledHeart');
 
     currentPokemon = pokemon;
 }
