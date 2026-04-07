@@ -62,6 +62,7 @@ window.addEventListener('keydown', e => {
 
     if (e.code === 'Escape' && document.activeElement === searchBar) {
         searchBar.blur();
+        hideSuggestionsList();
     }
 });
 

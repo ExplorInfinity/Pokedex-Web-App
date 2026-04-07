@@ -1,6 +1,16 @@
 import { formatString } from "./utils.js";
 
 class Pokemon {
+    static getGenderDetails(genderRate) {
+        if (genderRate === -1)
+            return { male: 0, female: 0 };
+
+        return {
+            female: Math.round(genderRate / 8 * 100),
+            get male() { return 100 - this.female }
+        };
+    }
+
     static createPokemonInstance(pokemonDetails) {
         const pokemon = new Pokemon();
         pokemon.id = pokemonDetails.id;
@@ -20,6 +30,10 @@ class Pokemon {
 
         pokemon.stats = {};
         pokemonDetails.stats.forEach(s => pokemon.stats[s.stat.name] = s.base_stat );
+
+        pokemon.gender = Pokemon.getGenderDetails(pokemonDetails.gender_rate);
+        pokemon.varieties = pokemonDetails.varieties.map(v => v.pokemon.name);
+        console.log(pokemon.varieties);
 
         return pokemon;
     }

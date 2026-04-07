@@ -1,10 +1,9 @@
 @media screen and (max-width: 700px) {
 
     .pokemonCard {
-        --accent-color: rgba(0, 0, 0, 0.4);
-        border: none;
         border-radius: 5px;
-        box-shadow: 2px 2px 3px var(--accent-color);
+        border: 2px solid var(--icon-color);
+        box-shadow: none;
         width: 100%;
         min-width: auto;
         height: max-content;
@@ -20,11 +19,12 @@
 
     .pokemonCard .pokemonDetails {
         width: 100%;
-        display: grid;
-        grid-template-columns: auto 30px;
         border-top: none;
         border-left: 2px solid var(--icon-color);
         box-shadow: none;
+        background-color: var(--icon-color);
+        background-blend-mode: overlay;
+        background-image: linear-gradient(to right, #dadada, #dadada);
     }
 
     .pokemonCard .pokemonName {

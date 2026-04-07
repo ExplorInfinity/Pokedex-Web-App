@@ -9,6 +9,13 @@ function createImageTag(url) {
     return image;
 }
 
+function createTypeDiv(type) {
+    const div = document.createElement("div");
+    div.classList.add("typeIcon");
+    div.classList.add(type);
+    return div;
+}
+
 function showAllImages(card, pokemon) {
     const { front_default, back_default, front_shiny, back_shiny } = pokemon.sprites;
     card.appendChild(createImageTag(front_default));
@@ -44,9 +51,14 @@ function createCard(pokemon) {
     pokemonName.classList.add('pokemonName');
     pokemonName.textContent = pokemon.name;
 
-    cardDetails.appendChild(pokemonName);
-    card.appendChild(pokemonImage);
-    card.appendChild(cardDetails);
+    const pokemonTypes = document.createElement("div");
+    pokemonTypes.classList.add('pokemonTypes');
+    for(const type of pokemon.types) {
+        pokemonTypes.appendChild(createTypeDiv(type));
+    }
+
+    cardDetails.append(pokemonName, pokemonTypes);
+    card.append(pokemonImage, cardDetails);
 
     card.addEventListener('click', async () => {
         updatePokemonProfile(await PokemonAPI.getPokemonDetailsByID(pokemon.id));

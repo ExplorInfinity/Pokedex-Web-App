@@ -36,6 +36,7 @@ class PokemonAPI {
 
         const pokemon = Pokemon.createPokemonInstance({ ...speciesDetails, ...pokemonDetails });
         PokemonAPI.cache.set(pokemonName, pokemon);
+        console.log({ ...speciesDetails, ...pokemonDetails });
         return pokemon;
     }
 

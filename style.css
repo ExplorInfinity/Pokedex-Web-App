@@ -6,6 +6,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Inter", sans-serif;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -157,4 +158,6 @@ footer {
     justify-content: center;
     align-items: center;
     background-color: gray;
+    margin-top: 50px;
+    border-top: 3px solid var(--icon-color, transparent);
 }

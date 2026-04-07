@@ -31,8 +31,10 @@ searchBar.addEventListener('keydown', async (e) => {
         const listItems = document.querySelectorAll("#searchSuggestions li");
         const input = listItems[currListIndex].getAttribute("value");
 
-        clearList(true);
-        currListIndex = -1;
+        hideSuggestionsList();
+        updateCurrentInputPreview(listItems[currListIndex].textContent);
+        clearList(false);
+        currListIndex = 0;
 
         const pokemon_data = await search(input);
         updatePokemonProfile(pokemon_data);
@@ -54,7 +56,6 @@ function updateCurrentInputPreview(currentInput) {
         currListItem = appendListElement(currentInput, currentInput.toLowerCase());
     } else currListItem = listItems[0];
 
-    showSuggestionsList();
     currListIndex = 0;
     currListItem.textContent = currentInput;
     currListItem.setAttribute("value", currentInput.toLowerCase());
