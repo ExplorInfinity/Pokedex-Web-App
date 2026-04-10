@@ -30,6 +30,7 @@ const pokemonAbilityElement = document.getElementById('pokemonAbility');
 
 // Image Section
 const imageSection = pokemonProfileElement.querySelector('.imageSection');
+const skeletonLoading = imageSection.querySelector('.skeletonLoading');
 const pokemonImageElement = imageSection.querySelector('.pokemonImage');
 
 let currentPokemon = null;
@@ -42,6 +43,18 @@ favoriteBtn.addEventListener('click', async e => {
         await showFavorites();
     }
 });
+
+function showImageLoading() {
+    pokemonImageElement.style.display = 'none';
+    skeletonLoading.classList.remove('hide');
+    pokemonImageElement.classList.remove('active');
+}
+
+function showImage() {
+    skeletonLoading.classList.add('hide');
+    pokemonImageElement.classList.add('active');
+    pokemonImageElement.style.display = 'block';
+}
 
 function createTypeContainer(type) {
     const container = document.createElement('div');
@@ -79,8 +92,13 @@ function updateStats(pokemonStats) {
 function updatePokemonProfile(pokemon) {
     pokemonNameElement.textContent = pokemon.name;
     pokemonIDElement.textContent = pokemon.getID();
-    pokemonImageElement.src = pokemon.image;
     pokemonDescriptionElement.textContent = pokemon.getDescription();
+
+    pokemonImageElement.src = pokemon.image;
+    showImageLoading();
+    pokemonImageElement.onload = () => {
+        showImage();
+    };
 
     updateTypes(pokemon.types);
     document.body.className = `${pokemon.types[0]} light-solid-color`;

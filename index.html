@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./stylesheets/pokemonProfile.css">
     <link rel="stylesheet" href="./stylesheets/pokemonTypeIcons.css">
     <link rel="stylesheet" href="./stylesheets/favorites.css">
+    <link rel="stylesheet" href="./stylesheets/skeletonLoading.css">
     <link rel="stylesheet" href="stylesheets/responsive/style.css">
     <link rel="stylesheet" href="stylesheets/responsive/pokemonProfile.css">
     <link rel="stylesheet" href="stylesheets/responsive/favorites.css">
@@ -112,7 +113,12 @@
                     <path d="M2 9.1371C2 14 6.01943 16.5914 8.96173 18.9109C10 19.7294 11 20.5 12 20.5C13 20.5 14 19.7294 15.0383 18.9109C17.9806 16.5914 22 14 22 9.1371C22 4.27416 16.4998 0.825464 12 5.50063C7.50016 0.825464 2 4.27416 2 9.1371Z" fill="#db2c4f" stroke=""/>
                     </svg>
                 </span>
-                <img class="pokemonImage" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10034.png" alt="Pokemon">
+
+                <div class="skeletonLoading">
+
+                </div>
+
+                <img class="pokemonImage" alt="">
             </div>
 
         </div>
@@ -152,7 +158,7 @@
 
     </div>
 
-    <footer style="display: flex" class="dark-solid-color">
+    <footer class="dark-solid-color">
         <p>© 2026 Aditya Singla | Pokédex</p>
         <p>Data provided by PokéAPI</p>
     </footer>

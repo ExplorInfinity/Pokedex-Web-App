@@ -1,0 +1,32 @@
+.skeletonLoading {
+    --primary-color: hsl(from var(--icon-color) h s l / 0.3);
+    --secondary-color: hsl(from var(--icon-color) h s l / 0.5);
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--primary-color));
+    animation: shimmer 1.5s infinite;
+    position: absolute;
+    transform-origin: top left;
+    z-index: 100;
+}
+
+.skeletonLoading.hide {
+    animation: fadeout 0.4s 1 forwards ease-in-out;
+    z-index: 0;
+}
+
+@keyframes fadeout {
+    from {
+        opacity: 1;
+        scale: 1;
+    }
+    to {
+        opacity: 0;
+        scale: 0.1;
+    }
+}
+
+@keyframes shimmer {
+    0% { background-position: -200px -200px; }
+    100% { background-position: 200px 200px; }
+}

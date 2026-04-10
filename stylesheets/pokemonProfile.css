@@ -63,41 +63,6 @@
     gap: 10px;
 }
 
-.pokemonProfile .imageSection {
-    position: relative;
-    user-select: none;
-}
-
-.pokemonProfile .imageSection .pokemonImage {
-    position: absolute;
-    bottom: 20%;
-}
-
-.pokemonProfile .imageSection .favoriteBtn {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 40px;
-    aspect-ratio: 1 / 1;
-    margin: 40px;
-}
-
-.pokemonProfile .imageSection .favoriteBtn svg {
-    width: 100%;
-    height: 100%;
-}
-
-.pokemonProfile .imageSection .favoriteBtn path {
-    fill: none;
-    stroke: black;
-    transition: all 200ms;
-}
-
-.filledHeart svg path {
-    fill: #cc143c !important;
-    stroke: none !important;
-}
-
 .strengthBar {
     display: inline-block;
     width: 100%;
@@ -120,12 +85,14 @@
     width: var(--value);
     background-color: crimson;
     z-index: var(--z-index, 2);
+    transition: width 0.4s ease-out;
 }
 
 .strengthBar .s_strength {
     width: var(--special-value);
     background-color: #ff8080;
     z-index: var(--special-z-index, 1);
+    transition: width 0.4s ease-out;
 }
 
 .attributes {
@@ -153,4 +120,63 @@
     padding: 10px;
     border-radius: 5px;
     text-align: center;
+}
+
+.pokemonProfile .imageSection {
+    position: relative;
+    user-select: none;
+}
+
+.pokemonProfile .imageSection .pokemonImage {
+    position: absolute;
+    bottom: 20%;
+    transition: all 0.4s ease-in-out;
+}
+
+.pokemonProfile .imageSection .pokemonImage.active {
+    animation: scale 0.5s forwards 1 ease-in-out;
+}
+
+@keyframes scale {
+    from {
+        scale: 0.95;
+    }
+
+    to {
+        scale: 1;
+    }
+}
+
+.pokemonProfile .imageSection .favoriteBtn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    aspect-ratio: 1 / 1;
+    margin: 40px;
+}
+
+.pokemonProfile .imageSection .favoriteBtn svg {
+    width: 100%;
+    height: 100%;
+}
+
+.pokemonProfile .imageSection .favoriteBtn path {
+    fill: none;
+    stroke: black;
+    transition: all 200ms;
+}
+
+.filledHeart svg path {
+    fill: #cc143c !important;
+    stroke: none !important;
+}
+
+.pokemonProfile .imageSection .skeletonLoading {
+    width: 70%;
+    height: 70%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }

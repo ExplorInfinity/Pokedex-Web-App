@@ -50,6 +50,8 @@ function updateCurrentInputPreview(currentInput) {
         return;
     }
 
+    showSuggestionsList();
+
     const listItems = document.querySelectorAll("#searchSuggestions li");
     let currListItem;
     if (listItems.length === 0) {
