@@ -47,11 +47,11 @@ header {
 #logo {
     width: 45px;
     aspect-ratio: 1 / 1;
-    animation: rotate 10s linear;
+    animation: jiggle 10s linear;
     filter: drop-shadow(1px 1px 5px rgba(0, 0, 0, 0.2));
 }
 
-@keyframes rotate {
+@keyframes jiggle {
     0%, 4%, 8% {
         transform: rotate(0deg);
     }
@@ -61,6 +61,15 @@ header {
     6% {
         transform: rotate(-30deg);
     }
+}
+
+#logo.loading {
+    animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 #title {

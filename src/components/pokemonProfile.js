@@ -44,7 +44,7 @@ favoriteBtn.addEventListener('click', async e => {
     }
 });
 
-function showImageLoading() {
+function startImageLoadingAnimation() {
     pokemonImageElement.style.display = 'none';
     skeletonLoading.classList.remove('hide');
     pokemonImageElement.classList.remove('active');
@@ -95,7 +95,6 @@ function updatePokemonProfile(pokemon) {
     pokemonDescriptionElement.textContent = pokemon.getDescription();
 
     pokemonImageElement.src = pokemon.image;
-    showImageLoading();
     pokemonImageElement.onload = () => {
         showImage();
     };
@@ -118,4 +117,4 @@ function updatePokemonProfile(pokemon) {
     currentPokemon = pokemon;
 }
 
-export { updatePokemonProfile };
+export { updatePokemonProfile, startImageLoadingAnimation };

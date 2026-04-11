@@ -71,6 +71,7 @@ function appendListElement(text, value) {
     searchSuggestionsList.appendChild(listItem);
 
     listItem.addEventListener('click', async  () => {
+        hideSuggestionsList();
         searchBar.value = listItem.textContent;
         const input = listItem.getAttribute("value");
         clearList(true);

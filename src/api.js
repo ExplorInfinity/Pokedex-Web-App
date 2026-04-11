@@ -2,6 +2,7 @@ import fetchURL from './fetch.js';
 import {formatString, getLocalStorage} from "./utils.js";
 import Pokemon from "./pokemon.js";
 import pokemon from "./pokemon.js";
+import { startImageLoadingAnimation } from "./components/pokemonProfile.js";
 
 class PokemonAPI {
 
@@ -29,6 +30,8 @@ class PokemonAPI {
     static async getPokemonDetails(pokemonName) {
         if (PokemonAPI.cache.has(pokemonName))
             return PokemonAPI.cache.get(pokemonName);
+
+        startImageLoadingAnimation();
 
         const pokemonDetails = await fetchURL(PokemonAPI.apiUrl + PokemonAPI.apiEndPoints.GET_POKEMON + pokemonName);
         const speciesDetails = await fetchURL(PokemonAPI.apiUrl + PokemonAPI.apiEndPoints.GET_POKEMON_SPECIES + pokemonDetails.species.name);
