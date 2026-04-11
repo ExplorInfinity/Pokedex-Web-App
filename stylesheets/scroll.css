@@ -1,0 +1,32 @@
+#scrollControls {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    translate: 0 -50%;
+    z-index: 10000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    pointer-events: none;
+    padding: 5px;
+}
+
+#scrollControls button {
+    width: min-content;
+    background-color: transparent;
+    border: none;
+    pointer-events: auto;
+    cursor: pointer;
+    opacity: 0.4;
+    transition: opacity 0.3s;
+}
+
+#scrollControls button:hover {
+    opacity: 1;
+}
+
+#scrollControls button img {
+    width: 40px;
+}

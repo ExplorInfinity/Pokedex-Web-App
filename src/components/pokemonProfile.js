@@ -117,4 +117,4 @@ function updatePokemonProfile(pokemon) {
     currentPokemon = pokemon;
 }
 
-export { updatePokemonProfile, startImageLoadingAnimation };
+export { currentPokemon, updatePokemonProfile, startImageLoadingAnimation };

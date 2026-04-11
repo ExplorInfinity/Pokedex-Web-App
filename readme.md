@@ -28,26 +28,17 @@ The Pokédex Web App is an interactive web application that allows users to expl
 ### 🔍 Search
 
 * [x] Search Pokémon by name
-
-### 🎯 Filtering
-
-* [ ] Filter by Pokémon type
-
-### 📊 Sorting
-
-* [ ] Sort by ID
-* [ ] Sort by name
-* [ ] Sort by stats
+* [x] Search Pokémon by id
 
 ### ❤️ Favorites
 
-* [ ] Add/remove favorites
-* [ ] Store using localStorage
+* [x] Add/remove favorites
+* [x] Store using localStorage
 
 ### 📱 UI & Responsiveness
 
-* [ ] Card-based layout
-* [ ] Responsive design (mobile/tablet/desktop)
+* [x] Card-based layout
+* [x] Responsive design (mobile/tablet/desktop)
 * [x] Type-based color coding
 
 ---
@@ -73,16 +64,16 @@ The Pokédex Web App is an interactive web application that allows users to expl
 
 * [x] Milestone 1: Project idea & planning
 * [x] Milestone 2: API integration
-* [ ] Milestone 3: Core features
-* [ ] Milestone 4: Final deployment
+* [x] Milestone 3: Core features
+* [x] Milestone 4: Final deployment
 
 ---
 
 ## 💡 Bonus Features (Optional)
 
 * [x] Debouncing (search optimization)
-* [ ] Pagination / Infinite scroll
-* [ ] Loading indicators
+* [x] Pagination / Infinite scroll
+* [x] Loading indicators
 * [x] Local storage support
 
 ---
