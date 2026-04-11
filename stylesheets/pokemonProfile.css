@@ -123,8 +123,13 @@
 }
 
 .pokemonProfile .imageSection {
-    position: relative;
     user-select: none;
+}
+
+.pokemonProfile .imageSection .imageCard {
+    width: 100%;
+    height: 100%;
+    position: relative;
 }
 
 .pokemonProfile .imageSection .pokemonImage {

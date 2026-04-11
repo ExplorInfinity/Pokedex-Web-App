@@ -112,7 +112,7 @@ header {
     border-radius: 0 0 5px 5px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     background-color: white;
-    z-index: 100;
+    z-index: 100000;
 }
 
 #searchSuggestions li {

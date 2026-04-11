@@ -1,10 +1,10 @@
 #scrollControls {
     position: absolute;
     top: 50%;
-    left: 0;
+    left: 50%;
     width: 100%;
     height: 100%;
-    translate: 0 -50%;
+    translate: -50% -50%;
     z-index: 10000;
     display: flex;
     justify-content: space-between;
@@ -29,4 +29,18 @@
 
 #scrollControls button img {
     width: 40px;
+}
+
+@media screen and (max-width: 700px) {
+    #scrollControls {
+        padding: 0;
+    }
+
+    #scrollControls button {
+        opacity: 0.2;
+    }
+
+    #scrollControls button:hover {
+        opacity: 0.5;
+    }
 }
